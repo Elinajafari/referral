@@ -1,0 +1,183 @@
+{
+  "network": "studionet",
+  "chain_id": 61999,
+  "contract": "0x887630E1404d98b89cF5858C201fe97930e9bb34",
+  "explorer": "https://explorer-studio.genlayer.com/address/0x887630E1404d98b89cF5858C201fe97930e9bb34",
+  "source_sha256": "efa20a8c8bdc728aed5a77dec3212120a3a2255c0ee3d7431cabe20427fb7034",
+  "constructor": {},
+  "deployer": "0x396cE6B624FB912Ce58dc35BC17480eF2A381206",
+  "steps": [
+    {
+      "step": "deploy",
+      "method": "deploy",
+      "from": "0x396cE6B624FB912Ce58dc35BC17480eF2A381206",
+      "tx": "0x5a1183d90481c58fef273b0f28d333ad691e209c383ef60c9716c6ef27f0ecb2",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": "",
+      "address": "0x887630E1404d98b89cF5858C201fe97930e9bb34"
+    },
+    {
+      "step": "program 0: a 0.05 GEN bonus, up to three referrals",
+      "method": "open",
+      "from": "0xc985F66Ff901357a61Afd88fDce7c73C2d4abFCE",
+      "tx": "0x4ac8f1597533db87ac43c5608e6e23dfcc74c112f67eb341f54312e6f1bdbec0",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the company refers on its own program",
+      "method": "refer",
+      "from": "0xc985F66Ff901357a61Afd88fDce7c73C2d4abFCE",
+      "tx": "0x0d3d2b67741c8719962535dbf1c2e361400d69d5a01116491fb921cd2d4ce10d",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the company cannot refer on its own program"
+    },
+    {
+      "step": "referral 0: Ann refers Dana, a paid signup within three days",
+      "method": "refer",
+      "from": "0x4F550476519933911fA206809600c81F538a94Cf",
+      "tx": "0x5cac148a26249894b74f946f064ae059806fdd6726664ec228ba0d5af777c0a1",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "referral 1: Ben refers Eli, a free trial only",
+      "method": "refer",
+      "from": "0x18f32A3300912C41F09cF5038Ff8e825Dc9d402C",
+      "tx": "0x111a36febdb02cfcd1d1d8cd6308f95479ecc2990990c9b3d08f5f83bd2f8979",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "Cal tries to refer Dana, already claimed by Ann",
+      "method": "refer",
+      "from": "0x931a7042f45Ff50c3d62F2fd4EC22aE61752Deab",
+      "tx": "0x7229cb70dabe36b2e418dc9a72389ce204783d9b38e338656040d4653e12106e",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this referred person has already been claimed"
+    },
+    {
+      "step": "referral 2: Cal refers Fay, a paid signup within a week",
+      "method": "refer",
+      "from": "0x931a7042f45Ff50c3d62F2fd4EC22aE61752Deab",
+      "tx": "0x29676f7ce1b06faccb0500c9a6f4a4706f4f979c7ea3af9ecb53b39f55732e79",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a settlement before the window closes",
+      "method": "settle",
+      "from": "0x7aD34fEF06004a0272bB1C9c5e7B611a2Af6f991",
+      "tx": "0x688111482964247d215c94ab89d26271e14f546d3e126bbb4f3eee7e4d4352e5",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] referrals are open until 2026-11-08T21:23:58Z"
+    },
+    {
+      "step": "a late referral after the window closes",
+      "method": "refer",
+      "from": "0x7aD34fEF06004a0272bB1C9c5e7B611a2Af6f991",
+      "tx": "0xc7d25e907e089e90c789ac286019999b3975eb48ab770f5100f60fd1148ef60f",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] referrals closed at 2026-11-08T21:23:58Z; a late referral is never judged"
+    },
+    {
+      "step": "program 0 settled: the unused third slot returned",
+      "method": "settle",
+      "from": "0x7aD34fEF06004a0272bB1C9c5e7B611a2Af6f991",
+      "tx": "0xedc3df7e1379acda19fe8483b8c2e2e4735274b5960b80e677759f83c08038f3",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    }
+  ],
+  "accounts": {
+    "deployer": "0x396cE6B624FB912Ce58dc35BC17480eF2A381206",
+    "company": "0xc985F66Ff901357a61Afd88fDce7c73C2d4abFCE",
+    "ann": "0x4F550476519933911fA206809600c81F538a94Cf",
+    "ben": "0x18f32A3300912C41F09cF5038Ff8e825Dc9d402C",
+    "cal": "0x931a7042f45Ff50c3d62F2fd4EC22aE61752Deab",
+    "stranger": "0x7aD34fEF06004a0272bB1C9c5e7B611a2Af6f991"
+  },
+  "programs": [
+    {
+      "bonus": "50000000000000000",
+      "closed_at": "2026-11-08T21:24:36Z",
+      "closes_at": "2026-11-08T21:23:58Z",
+      "company": "0xc985F66Ff901357a61Afd88fDce7c73C2d4abFCE",
+      "criteria": "A referral qualifies only if the evidence shows the referred person created a paid account and completed onboarding within fourteen days of signing up. Signing up for a free trial without upgrading, or evidence about a different product, is not enough.",
+      "left": "0",
+      "max_referrals": 3,
+      "opened_at": "2026-11-08T21:08:58Z",
+      "paid": 2,
+      "paid_total": "100000000000000000",
+      "pool": "150000000000000000",
+      "referrals": 3,
+      "returned": "50000000000000000",
+      "status": "closed"
+    }
+  ],
+  "referrals": [
+    {
+      "at": "2026-11-08T21:09:23Z",
+      "evidence": "Dana created a paid account last week and finished the onboarding checklist within three days of signing up.",
+      "id": 0,
+      "paid": "50000000000000000",
+      "program": 0,
+      "reason_is_leader_supplied": true,
+      "referred": "Dana Kim, dana@example.com, signed up this month",
+      "referrer": "0x4F550476519933911fA206809600c81F538a94Cf",
+      "verdict": "qualifying",
+      "why": "Evidence shows a paid account was created and onboarding completed within three days of signup, meeting both criteria."
+    },
+    {
+      "at": "2026-11-08T21:10:34Z",
+      "evidence": "Eli signed up for the free trial but has not upgraded to a paid plan yet.",
+      "id": 1,
+      "paid": "0",
+      "program": 0,
+      "reason_is_leader_supplied": true,
+      "referred": "Eli Osei, eli@example.com, signed up this month",
+      "referrer": "0x18f32A3300912C41F09cF5038Ff8e825Dc9d402C",
+      "verdict": "not_qualifying",
+      "why": "Evidence shows only a free trial signup with no paid upgrade, so the paid account criterion is not met."
+    },
+    {
+      "at": "2026-11-08T21:11:18Z",
+      "evidence": "Fay upgraded to a paid account and completed onboarding within a week of signing up.",
+      "id": 2,
+      "paid": "50000000000000000",
+      "program": 0,
+      "reason_is_leader_supplied": true,
+      "referred": "Fay Novak, fay@example.com, signed up this month",
+      "referrer": "0x931a7042f45Ff50c3d62F2fd4EC22aE61752Deab",
+      "verdict": "qualifying",
+      "why": "Evidence states Fay upgraded to a paid account and completed onboarding within a week of signing up, satisfying both required conditions."
+    }
+  ],
+  "balances": {
+    "company_before": "850000000000000000",
+    "company_after": "900000000000000000",
+    "ann_before": "0",
+    "ann_after": "50000000000000000",
+    "ben_before": "0",
+    "ben_after": "0",
+    "cal_before": "0",
+    "cal_after": "50000000000000000"
+  },
+  "owed": {
+    "company": "50000000000000000",
+    "ann": "50000000000000000",
+    "ben": "0",
+    "cal": "50000000000000000"
+  },
+  "held_after": "0"
+}

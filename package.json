@@ -1,0 +1,34 @@
+{
+  "name": "referral",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Referral: a referral bonus paid only when GenLayer validators agree the evidence shows a referred person met the criteria, never twice for the same person.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Elina (https://github.com/Elinajafari)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Elinajafari/referral"
+  },
+  "scripts": {
+    "test": "pnpm -r --sequential test",
+    "test:contract": "pnpm --filter @referral/contracts test",
+    "test:shared": "pnpm --filter @referral/shared test",
+    "typecheck": "pnpm --filter @referral/shared typecheck",
+    "mutate:contract": "pnpm --filter @referral/contracts mutate",
+    "measure:contract": "pnpm --filter @referral/contracts measure",
+    "lint:genvm": "node packages/contracts/scripts/lint.mjs",
+    "deploy:contract": "node packages/contracts/scripts/deploy.mjs",
+    "seed:contract": "node packages/contracts/scripts/seed.mjs",
+    "seed:activity": "node packages/contracts/scripts/seed-activity.mjs",
+    "e2e:contract": "node packages/contracts/scripts/e2e.mjs",
+    "verify:contract": "node packages/contracts/scripts/verify.mjs",
+    "evidence:contract": "node packages/contracts/scripts/evidence.mjs",
+    "evidence:activity": "node packages/contracts/scripts/evidence.mjs packages/contracts/deployments/studionet-activity.json EVIDENCE-ACTIVITY.md \"Referral, second round\"",
+    "demo:contract": "pnpm deploy:contract && pnpm seed:contract && pnpm e2e:contract && pnpm evidence:contract"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.18.2"
+}

@@ -1,0 +1,147 @@
+{
+  "clean_text": [
+    {
+      "raw": "  Dana\tKim,\n dana@example.com ",
+      "clean": "Dana Kim, dana@example.com"
+    },
+    {
+      "raw": "bell\u0007x",
+      "clean": "bell x"
+    }
+  ],
+  "referred_key": [
+    {
+      "raw": "Dana Kim, dana@example.com",
+      "key": "85f4578cc57c527dbe76ce2cb65a403998ffdfbf288abc67e5e5c5fc04895e73"
+    },
+    {
+      "raw": "  dana kim,   DANA@example.com  ",
+      "key": "85f4578cc57c527dbe76ce2cb65a403998ffdfbf288abc67e5e5c5fc04895e73"
+    },
+    {
+      "raw": "Eli Osei, eli@example.com",
+      "key": "f24c8f1e36b70c9281014b785b907262abc8537551eb7a8cb2813b99b8bad989"
+    }
+  ],
+  "normalise_choice": [
+    {
+      "raw": "0",
+      "n": 2,
+      "choice": "0"
+    },
+    {
+      "raw": "1",
+      "n": 2,
+      "choice": "1"
+    },
+    {
+      "raw": " [0] ",
+      "n": 2,
+      "choice": "0"
+    },
+    {
+      "raw": "#1",
+      "n": 2,
+      "choice": "1"
+    },
+    {
+      "raw": "(0)",
+      "n": 2,
+      "choice": "0"
+    },
+    {
+      "raw": "",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "2",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "-1",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "one",
+      "n": 2,
+      "choice": ""
+    }
+  ],
+  "option_of": [
+    {
+      "choice": "0",
+      "order": [
+        "qualifying",
+        "not_qualifying"
+      ],
+      "option": "qualifying"
+    },
+    {
+      "choice": "1",
+      "order": [
+        "qualifying",
+        "not_qualifying"
+      ],
+      "option": "not_qualifying"
+    },
+    {
+      "choice": "",
+      "order": [
+        "qualifying",
+        "not_qualifying"
+      ],
+      "option": ""
+    },
+    {
+      "choice": "0",
+      "order": [
+        "not_qualifying",
+        "qualifying"
+      ],
+      "option": "not_qualifying"
+    }
+  ],
+  "fold": [
+    {
+      "forward": "qualifying",
+      "reverse": "qualifying",
+      "folded": "qualifying"
+    },
+    {
+      "forward": "not_qualifying",
+      "reverse": "not_qualifying",
+      "folded": "not_qualifying"
+    },
+    {
+      "forward": "qualifying",
+      "reverse": "not_qualifying",
+      "folded": "not_qualifying"
+    },
+    {
+      "forward": "",
+      "reverse": "qualifying",
+      "folded": ""
+    }
+  ],
+  "verdict_sound": [
+    {
+      "verdict": "qualifying",
+      "sound": true
+    },
+    {
+      "verdict": "not_qualifying",
+      "sound": true
+    },
+    {
+      "verdict": "",
+      "sound": false
+    },
+    {
+      "verdict": "maybe",
+      "sound": false
+    }
+  ]
+}

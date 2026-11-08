@@ -1,0 +1,99 @@
+{
+  "contract": "packages/contracts/referral.py",
+  "note": "Generated from the contract source and deployments/studionet.json; packages/contracts/tests/test_shape.py fails if either drifts from this file.",
+  "constructor": {},
+  "writes": {
+    "open": {
+      "params": {
+        "criteria": "str",
+        "bonus": "u256",
+        "max_referrals": "u256",
+        "window": "u256"
+      },
+      "payable": true
+    },
+    "refer": {
+      "params": {
+        "program_id": "u256",
+        "referred": "str",
+        "evidence": "str"
+      }
+    },
+    "settle": {
+      "params": {
+        "program_id": "u256"
+      }
+    }
+  },
+  "views": {
+    "count": {
+      "params": {},
+      "returns": "u256"
+    },
+    "held_total": {
+      "params": {},
+      "returns": "u256"
+    },
+    "status": {
+      "params": {
+        "program_id": "u256"
+      },
+      "returns": "str"
+    },
+    "program": {
+      "params": {
+        "program_id": "u256"
+      },
+      "returns": "dict",
+      "fields": [
+        "bonus",
+        "closed_at",
+        "closes_at",
+        "company",
+        "criteria",
+        "left",
+        "max_referrals",
+        "opened_at",
+        "paid",
+        "paid_total",
+        "pool",
+        "referrals",
+        "returned",
+        "status"
+      ],
+      "sampled_from_record": [
+        "programs",
+        0
+      ]
+    },
+    "referrals_of": {
+      "params": {
+        "program_id": "u256"
+      },
+      "returns": "dict",
+      "row_fields": [
+        "at",
+        "evidence",
+        "id",
+        "paid",
+        "program",
+        "reason_is_leader_supplied",
+        "referred",
+        "referrer",
+        "verdict",
+        "why"
+      ],
+      "sampled_from_record": [
+        "referrals",
+        0
+      ]
+    },
+    "claimed_on": {
+      "params": {
+        "program_id": "u256",
+        "referred": "str"
+      },
+      "returns": "int"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "network": "studionet",
+  "contract": "0x887630E1404d98b89cF5858C201fe97930e9bb34",
+  "accounts": {
+    "company": "0x7Df465EC61A760887D96bC0Dd85798Fb89356603",
+    "referrer": "0x515B1426412A7F7E4D21DDFa510928a5c985D201"
+  },
+  "steps": [
+    {
+      "step": "program 1: a new company opens a one-referral program",
+      "method": "open",
+      "from": "0x7Df465EC61A760887D96bC0Dd85798Fb89356603",
+      "tx": "0x4fd98d4e4e37d573b01858ae18bf68bf092d78e2ed01ff67b2b1f8c7fd6e4bac",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "referral for program 1: a new referrer refers (expected qualifying)",
+      "method": "refer",
+      "from": "0x515B1426412A7F7E4D21DDFa510928a5c985D201",
+      "tx": "0x6c6b87d80ca64a76b4943b34ae5997e1a4e0fbc049011bc21d74b292317b3a13",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the company tries to settle before the window closes",
+      "method": "settle",
+      "from": "0x7Df465EC61A760887D96bC0Dd85798Fb89356603",
+      "tx": "0xfbbb0937822d5ac53e656a6a9063dc51c896d7c8e244e5a5113b59c69693b55f",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] referrals are open until 2026-11-08T21:34:50Z"
+    },
+    {
+      "step": "program 1 settled",
+      "method": "settle",
+      "from": "0x7Df465EC61A760887D96bC0Dd85798Fb89356603",
+      "tx": "0x0e9a2eb7d78339f447579d8cebbc7ad45138781a2823bae0bdd92ad7e41d497d",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    }
+  ],
+  "programs": {
+    "1": {
+      "bonus": "50000000000000000",
+      "closed_at": "2026-11-08T21:35:15Z",
+      "closes_at": "2026-11-08T21:34:50Z",
+      "company": "0x7Df465EC61A760887D96bC0Dd85798Fb89356603",
+      "criteria": "A referral qualifies only if the evidence shows the referred person attended a paid workshop and submitted feedback afterwards. Registering without attending is not enough.",
+      "left": "0",
+      "max_referrals": 1,
+      "opened_at": "2026-11-08T21:29:50Z",
+      "paid": 1,
+      "paid_total": "50000000000000000",
+      "pool": "50000000000000000",
+      "referrals": 1,
+      "returned": "0",
+      "status": "closed"
+    }
+  },
+  "balances": {
+    "referrer_before": "0",
+    "referrer_after": "50000000000000000"
+  }
+}

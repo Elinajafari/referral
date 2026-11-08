@@ -1,0 +1,11 @@
+{
+  "program": {
+    "criteria": "A referral qualifies only if the evidence shows the referred person attended a paid workshop and submitted feedback afterwards. Registering without attending is not enough.",
+    "bonus": "50000000000000000",
+    "max_referrals": 1,
+    "window": 300
+  },
+  "referred": "Gio Petrov, gio@example.com, registered this month",
+  "evidence": "Gio attended the paid workshop in full and submitted feedback the next day.",
+  "expected_verdict": "qualifying"
+}

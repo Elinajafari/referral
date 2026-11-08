@@ -1,0 +1,34 @@
+{
+  "program": {
+    "criteria": "A referral qualifies only if the evidence shows the referred person created a paid account and completed onboarding within fourteen days of signing up. Signing up for a free trial without upgrading, or evidence about a different product, is not enough.",
+    "bonus": "50000000000000000",
+    "max_referrals": 3,
+    "window": 900
+  },
+  "referred": {
+    "dana": "Dana Kim, dana@example.com, signed up this month",
+    "eli": "Eli Osei, eli@example.com, signed up this month",
+    "fay": "Fay Novak, fay@example.com, signed up this month"
+  },
+  "evidence": {
+    "dana_qualifies": "Dana created a paid account last week and finished the onboarding checklist within three days of signing up.",
+    "eli_trial": "Eli signed up for the free trial but has not upgraded to a paid plan yet.",
+    "fay_qualifies": "Fay upgraded to a paid account and completed onboarding within a week of signing up."
+  },
+  "steps": [
+    {"who": "company", "method": "open", "expect": "ok", "step": "program 0: a 0.05 GEN bonus, up to three referrals"},
+    {"who": "company", "method": "refer", "id": 0, "referred": "dana", "evidence": "dana_qualifies", "expect": "refused", "step": "the company refers on its own program"},
+    {"who": "ann", "method": "refer", "id": 0, "referred": "dana", "evidence": "dana_qualifies", "expect": "ok", "step": "referral 0: Ann refers Dana, a paid signup within three days"},
+    {"who": "ben", "method": "refer", "id": 0, "referred": "eli", "evidence": "eli_trial", "expect": "ok", "step": "referral 1: Ben refers Eli, a free trial only"},
+    {"who": "cal", "method": "refer", "id": 0, "referred": "dana", "evidence": "dana_qualifies", "expect": "refused", "step": "Cal tries to refer Dana, already claimed by Ann"},
+    {"who": "cal", "method": "refer", "id": 0, "referred": "fay", "evidence": "fay_qualifies", "expect": "ok", "step": "referral 2: Cal refers Fay, a paid signup within a week"},
+    {"who": "stranger", "method": "settle", "id": 0, "expect": "refused", "step": "a settlement before the window closes"},
+    {"who": "stranger", "method": "refer", "id": 0, "referred": "fay", "evidence": "fay_qualifies", "expect": "refused", "step": "a late referral after the window closes", "after": ["closes_at", 0]},
+    {"who": "stranger", "method": "settle", "id": 0, "expect": "ok", "step": "program 0 settled: the unused third slot returned"}
+  ],
+  "expected_verdicts": [
+    "qualifying",
+    "not_qualifying",
+    "qualifying"
+  ]
+}
